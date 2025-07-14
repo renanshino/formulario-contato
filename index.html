@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <title>Formulário de Contato</title>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -11,7 +12,7 @@
     function enviarFormulario(event) {
       event.preventDefault();
 
-      emailjs.sendForm('service_ogeay6j', 'template_ceykbij', event.target)
+      emailjs.sendForm('gmail', 'template_ceykbij', event.target)
         .then(() => {
           alert('Formulário enviado com sucesso!');
           window.open('https://www.linkedin.com/in/renanshinohara/', '_blank');
