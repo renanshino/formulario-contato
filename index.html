@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Contato</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      emailjs.init("fb1lv22BvPf-T51k4"); // Public Key
+    });
+
+    function enviarFormulario(event) {
+      event.preventDefault();
+
+      emailjs.sendForm('gmail', 'template_ceykbij', event.target)
+        .then(() => {
+          alert('Formulário enviado com sucesso!');
+          window.open('https://www.linkedin.com/in/renanshinohara/', '_blank');
+        }, (error) => {
+          alert('Erro ao enviar: ' + JSON.stringify(error));
+          console.error(error);
+        });
+    }
+  </script>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #6600b4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #f0f0f0;
+      color: #6600b4;
+      border: 1px solid #6600b4;
+    }
+  </style>
+</head>
+<body>
+
+<form onsubmit="enviarFormulario(event)">
+  <label for="nome">Nome completo:</label>
+  <input type="text" id="nome" name="nome" required>
+
+  <label for="empresa">Nome da empresa:</label>
+  <input type="text" id="empresa" name="empresa">
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="telefone">Telefone:</label>
+  <input type="text" id="telefone" name="telefone">
+
+  <button type="submit"><b>Enviar</b></button>
+</form>
+
+</body>
+</html>
