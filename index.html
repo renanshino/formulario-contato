@@ -1,83 +1,77 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Formulário de Contato</title>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      emailjs.init("fb1lv22BvPf-T51k4"); // Public Key
-    });
+<section style="max-width: 600px; margin: 40px auto;">
+  <h2>Formulário de Interesse</h2>
+  <form action="https://formsubmit.co/reroshino@gmail.com" method="POST">
+    
+    <label for="nome">Nome completo:</label>
+    <input type="text" id="nome" name="Nome Completo" required>
 
-    function enviarFormulario(event) {
-      event.preventDefault();
+    <label for="empresa">Nome da empresa:</label>
+    <input type="text" id="empresa" name="Nome da Empresa">
 
-      emailjs.sendForm('service_ogeay6j', 'template_ceykbij', event.target)
-        .then(() => {
-          alert('Formulário enviado com sucesso!');
-          window.open('https://www.linkedin.com/in/renanshinohara/', '_blank');
-        }, (error) => {
-          alert('Erro ao enviar: ' + JSON.stringify(error));
-          console.error(error);
-        });
-    }
-  </script>
-  <style>
-    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
-    form {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 20px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      margin-top: 30px;
-      padding: 12px 24px;
-      background: #6600b4;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #f0f0f0;
-      color: #6600b4;
-      border: 1px solid #6600b4;
-    }
-  </style>
-</head>
-<body>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="Email" required>
 
-<form onsubmit="enviarFormulario(event)">
-  <label for="nome">Nome completo:</label>
-  <input type="text" id="nome" name="nome" required>
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="Telefone">
 
-  <label for="empresa">Nome da empresa:</label>
-  <input type="text" id="empresa" name="empresa">
+    <label>Tenho interesse em conversar com Renan Shinohara:</label>
+    <div style="margin-top: 8px;">
+      <label>
+        <input type="radio" name="Interesse em conversar" value="Sim" required>
+        Sim
+      </label>
+      <label style="margin-left: 20px;">
+        <input type="radio" name="Interesse em conversar" value="Não">
+        Não
+      </label>
+    </div>
 
-  <label for="email">E-mail:</label>
-  <input type="email" id="email" name="email" required>
+    <!-- Desativa captcha do FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    
+    <!-- Redirecionamento após envio (opcional) -->
+    <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
 
-  <label for="telefone">Telefone:</label>
-  <input type="text" id="telefone" name="telefone">
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-  <button type="submit"><b>Enviar</b></button>
-</form>
-
-</body>
-</html>
+<style>
+  section {
+    font-family: sans-serif;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background: #0056b3;
+  }
+</style>
